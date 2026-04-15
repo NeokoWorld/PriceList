@@ -1,0 +1,156 @@
+currency: USD
+
+base_prices:
+  - id: icon
+    name: "Icone / Logo / Emote"
+    price: 6
+
+  - id: chibi
+    name: "Chibi"
+    price: 8
+
+  - id: head
+    name: "Head"
+    price: 15
+
+  - id: bust
+    name: "Buste"
+    price: 17
+
+  - id: half_body
+    name: "Half-body"
+    price: 20
+
+  - id: full_body
+    name: "Full-body"
+    price: 25
+
+  - id: ref_sheet
+    name: "Ref Sheet"
+    price: 40
+    fixed: true
+
+finishes:
+  - id: sketch
+    name: "Sketch"
+    price: 0
+
+  - id: lineart
+    name: "Line Art"
+    price: 1
+
+  - id: flat_colors
+    name: "Couleurs flat"
+    price: 2
+
+  - id: shading
+    name: "Ombres et lumières"
+    price: 5
+
+line_styles:
+  - id: black_line
+    name: "Line noir"
+    price: 0
+
+  - id: colored_line
+    name: "Line coloré"
+    price: 1
+
+  - id: no_line
+    name: "Sans line"
+    price: 2
+
+backgrounds:
+  - id: transparent
+    name: "Transparent"
+    price: 0
+
+  - id: solid
+    name: "Couleur unie"
+    price: 0
+
+  - id: simple
+    name: "Background simple"
+    price: 5
+
+  - id: detailed
+    name: "Background détaillé"
+    price: 10
+
+extras:
+  - id: extra_character
+    name: "Personnage supplémentaire"
+    price: 10
+    per_unit: true
+
+  - id: gif
+    name: "GIF animé"
+    price: 15
+
+rules:
+  payment:
+    - "50% avant"
+    - "50% après validation du sketch"
+
+  commercial_use: "Prix x2"
+
+  revisions:
+    free: 2
+    note: "Modifications supplémentaires possibles (à discuter)"
+
+  delivery:
+    min: "2 semaines"
+    max: "2 mois"
+
+  output:
+    - "PNG"
+    - "JPEG"
+    - "GIF (si animation)"
+
+content_policy:
+  allowed:
+    - "Humain"
+    - "Furry"
+    - "Dragon"
+    - "Chat"
+    - "Oiseau"
+    - "Créatures fantastiques"
+    - "Sonic"
+    - "RainWorld"
+    - "DnD"
+    - "Couples (non explicite)"
+    - "Gore / Body Horror"
+
+  forbidden:
+    - "NSFW"
+    - "Thèmes illégaux ou controversés"
+    - "Réalisme"
+    - "Personnes réelles"
+    - "Animaux de compagnie"
+
+  unsure:
+    - "Tout le reste (au cas par cas)"
+
+packs:
+  - id: sketch_simple
+    name: "Sketch simple"
+    price: 15
+    includes:
+      - "Head ou buste"
+      - "Sketch"
+
+  - id: full_render
+    name: "Full render"
+    price: 25
+    includes:
+      - "Full-body"
+      - "Couleurs"
+      - "Shading"
+
+  - id: full_render_bg
+    name: "Full render + background"
+    price: 35
+    includes:
+      - "Full-body"
+      - "Shading"
+      - "Background simple"

@@ -1,0 +1,156 @@
+currency: USD
+
+base_prices:
+  - id: icon
+    name: "Icon / Logo / Emote"
+    price: 6
+
+  - id: chibi
+    name: "Chibi"
+    price: 8
+
+  - id: head
+    name: "Head"
+    price: 15
+
+  - id: bust
+    name: "Bust"
+    price: 17
+
+  - id: half_body
+    name: "Half-body"
+    price: 20
+
+  - id: full_body
+    name: "Full-body"
+    price: 25
+
+  - id: ref_sheet
+    name: "Reference Sheet"
+    price: 40
+    fixed: true
+
+finishes:
+  - id: sketch
+    name: "Sketch"
+    price: 0
+
+  - id: lineart
+    name: "Line Art"
+    price: 1
+
+  - id: flat_colors
+    name: "Flat Colors"
+    price: 2
+
+  - id: shading
+    name: "Shading & Lighting"
+    price: 5
+
+line_styles:
+  - id: black_line
+    name: "Black Line"
+    price: 0
+
+  - id: colored_line
+    name: "Colored Line"
+    price: 1
+
+  - id: no_line
+    name: "Lineless"
+    price: 2
+
+backgrounds:
+  - id: transparent
+    name: "Transparent"
+    price: 0
+
+  - id: solid
+    name: "Solid Color"
+    price: 0
+
+  - id: simple
+    name: "Simple Background"
+    price: 5
+
+  - id: detailed
+    name: "Detailed Background"
+    price: 10
+
+extras:
+  - id: extra_character
+    name: "Additional Character"
+    price: 10
+    per_unit: true
+
+  - id: gif
+    name: "Animated GIF"
+    price: 15
+
+rules:
+  payment:
+    - "50% upfront"
+    - "50% after sketch approval"
+
+  commercial_use: "Price x2"
+
+  revisions:
+    free: 2
+    note: "Additional revisions possible (to be discussed)"
+
+  delivery:
+    min: "2 weeks"
+    max: "2 months"
+
+  output:
+    - "PNG"
+    - "JPEG"
+    - "GIF (for animations)"
+
+content_policy:
+  allowed:
+    - "Human"
+    - "Furry"
+    - "Dragon"
+    - "Cat"
+    - "Bird"
+    - "Fantasy creatures"
+    - "Sonic"
+    - "Rain World"
+    - "D&D"
+    - "Couples (non-explicit)"
+    - "Gore / Body Horror"
+
+  forbidden:
+    - "NSFW"
+    - "Illegal or controversial themes"
+    - "Realism"
+    - "Real people"
+    - "Pets"
+
+  unsure:
+    - "Anything else (case-by-case)"
+
+packs:
+  - id: sketch_simple
+    name: "Simple Sketch"
+    price: 15
+    includes:
+      - "Head or Bust"
+      - "Sketch"
+
+  - id: full_render
+    name: "Full Render"
+    price: 25
+    includes:
+      - "Full-body"
+      - "Colors"
+      - "Shading"
+
+  - id: full_render_bg
+    name: "Full Render + Background"
+    price: 35
+    includes:
+      - "Full-body"
+      - "Shading"
+      - "Simple Background"
