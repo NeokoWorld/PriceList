@@ -3,12 +3,12 @@ export default function Gallery({ lang }: { lang: 'fr' | 'en' }) {
     fr: [
       { src: '/img1.webp', label: 'Full Render, Complexe BG — 35$' },
       { src: '/Suriel.gif', label: 'Chibi,Flat,Colored Line,GIF — 26$' },
-      { src: '/img3.jpg', label: 'Full Render — 25$' },
+      { src: '/syolrn.png', label: 'Full Render — 25$' },
     ],
     en: [
       { src: '/img1.webp', label: 'Full Render, Complexe BG — $35' },
       { src: '/Suriel.gif', label: 'Chibi,Flat,Colored Line,GIF — $26' },
-      { src: '/img3.jpg', label: 'Full Render — $25' },
+      { src: '/syolrn.png', label: 'Full Render — $25' },
     ],
   };
 
