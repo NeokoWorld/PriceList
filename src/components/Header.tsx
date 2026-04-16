@@ -18,6 +18,11 @@ export default function Header({ lang }: { lang: 'fr' | 'en' }) {
     },
   };
 
+  const formUrl = {
+    fr: 'https://forms.gle/rxffbrqr858pTraS6',
+    en: 'https://forms.gle/A4aMBJaWmBDnqAXP6',
+  };
+
   return (
     <section className="hero">
       {/* TITLE */}
@@ -51,7 +56,7 @@ export default function Header({ lang }: { lang: 'fr' | 'en' }) {
         }}
       >
         <a
-          href="https://forms.gle/rxffbrqr858pTraS6"
+          href={formUrl[lang]}
           className="button button-primary"
         >
           {text[lang].cta}
