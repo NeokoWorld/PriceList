@@ -77,21 +77,6 @@ export default function Header({ lang }: { lang: 'fr' | 'en' }) {
       >
         {text[lang].note}
       </p>
-
-      {/* SMALL HIGHLIGHT TAGS */}
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '8px',
-          marginTop: '18px',
-          flexWrap: 'wrap',
-        }}
-      >
-        <span style={tagStyle}>Custom art</span>
-        <span style={tagStyle}>Character design</span>
-        <span style={tagStyle}>Fast communication</span>
-      </div>
     </section>
   );
 }

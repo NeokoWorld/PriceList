@@ -1,0 +1,653 @@
+/* ========= ROOT + BASE ========= */
+:root {
+    --radius: 14px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Inter, system-ui, sans-serif;
+    background: radial-gradient(circle at 20% 20%, var(--accent), transparent 30%),
+      radial-gradient(circle at 80% 25%, var(--accent), transparent 35%),
+      radial-gradient(circle at 30% 80%, var(--accent), transparent 35%),
+      radial-gradient(circle at 80% 80%, var(--accent), transparent 35%),
+      var(--bg);
+    color: var(--text);
+  }
+  
+  section {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: auto;
+    color: var(--text);
+  }
+  
+  h1, h2, h3 {
+    margin: 0 0 16px;
+    color: var(--text);
+  }
+  
+  p {
+    color: var(--muted);
+  }
+  
+  a {
+    color: inherit;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+    font-weight: 900;
+    letter-spacing: -1px;
+  
+    line-height: 1.15;
+    padding: 6px 0;
+  
+    background: linear-gradient(90deg, var(--text), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  
+  /* ========= LAYOUT ========= */
+  .app-wrapper {
+    min-height: 100vh;
+    background: var(--surface);
+    padding: 24px;
+  }
+  
+  .app-surface {
+    max-width: 1100px;
+    margin: auto;
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 32px;
+  
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35),
+    var(--shadow-glow);
+  
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  
+  .grid {
+    display: grid;
+    gap: 18px;
+  }
+  
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  
+  @media (max-width: 768px) {
+    .grid-2,
+    .grid-3,
+    .process-steps {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  
+  /* ========= CARDS ========= */
+  .card {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.03),
+      rgba(255, 255, 255, 0.01)
+    );
+  
+    border-radius: var(--radius);
+    padding: 16px;
+  
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(10px);
+  
+    transition: 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card:hover {
+    transform: translateY(-6px) scale(1.01);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md), var(--shadow-glow);
+  }
+  
+  .card.selected {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    box-shadow: var(--shadow-md), var(--shadow-glow);
+    transform: translateY(-3px);
+  }
+
+  
+  /* ========= BUTTONS ========= */
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 12px 18px;
+    border-radius: 12px;
+  
+    font-weight: 600;
+    text-decoration: none;
+  
+    transition: 0.25s ease;
+    border: 1px solid transparent;
+    color: var(--text);
+  }
+  
+  .button-primary {
+    background: var(--accent);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .button-primary:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+  }
+  
+  .button-secondary {
+    background: transparent;
+    border: 1px solid var(--accent);
+  }
+  
+  .button-secondary:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+  }
+  
+  .button-success {
+    background: var(--accent2);
+    color: var(--text);
+  }
+  
+  .button-success:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+  }
+
+  
+  /* ========= GALLERY ========= */
+  .gallery-section {
+    text-align: center;
+  }
+  
+  .gallery-title {
+    margin-bottom: 30px;
+  }
+  
+  .gallery-grid {
+    gap: 20px;
+  }
+  
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s ease;
+  }
+  
+  .gallery-item:hover .gallery-img {
+    transform: scale(1.08);
+  }
+  
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+  
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  
+    padding: 16px;
+  
+    background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+    opacity: 0;
+    transition: 0.3s ease;
+  }
+  
+  .gallery-item:hover .gallery-overlay {
+    opacity: 1;
+  }
+  
+  .gallery-label {
+    font-size: 13px;
+    color: white;
+  }
+
+  
+  /* ========= PROCESS ========= */
+  .process-steps {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .process-card {
+    text-align: center;
+  }
+  
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    width: 32px;
+    height: 32px;
+  
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--text);
+  
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+
+  
+  /* ========= DODONT ========= */
+  .dodont-card {
+    padding: 20px;
+    border-radius: var(--radius);
+    text-align: left;
+    transition: 0.25s ease;
+  }
+  
+  .dodont-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .dodont-title {
+    margin-bottom: 12px;
+    font-size: 18px;
+  }
+  
+  .dodont-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dodont-item {
+    padding: 6px 0 6px 14px;
+    position: relative;
+  }
+  
+  .dodont-item::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  
+    background: var(--accent);
+    opacity: 0.7;
+  }
+
+
+    /* ========= CONTACT ========= */
+  .contact-section {
+    text-align: center;
+    padding: 100px 20px 80px;
+  }
+  
+  .contact-subtitle {
+    color: var(--muted);
+    margin-bottom: 30px;
+  }
+  
+  .contact-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .contact-card.highlight {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .contact-hint {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  
+  .contact-cta {
+    margin-top: 40px;
+  }
+  
+  .contact-note {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+
+/* ========= LANGUAGE ========= */
+      .lang-switch {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        z-index: 9999;
+      
+        display: flex;
+        gap: 8px;
+      
+        background: var(--card);
+        backdrop-filter: blur(10px);
+      
+        padding: 6px;
+        border-radius: 999px;
+      
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      
+      .lang-btn {
+        border: none;
+        background: transparent;
+        color: var(--text);
+      
+        padding: 8px 12px;
+        border-radius: 999px;
+      
+        transition: 0.2s ease;
+      }
+      
+      .lang-btn:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+      
+      .lang-btn.active {
+        background: var(--accent);
+        color: var(--text);
+        font-weight: 600;
+      }
+
+
+
+
+
+/* =========================
+   COCKPIT HUD
+========================= */
+
+.cockpit-hud {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    width: 240px;
+  
+    padding: 14px;
+    border-radius: 14px;
+  
+    background: var(--surface);
+    backdrop-filter: blur(12px);
+  
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-glow);
+  
+    font-family: system-ui, sans-serif;
+    z-index: 9999;
+  }
+  
+  .hud-title {
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    margin-bottom: 8px;
+  }
+  
+  .hud-display {
+    position: relative;
+    height: 80px;
+  
+    border-radius: 10px;
+    overflow: hidden;
+  
+    background: var(--card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hud-theme {
+    font-size: 12px;
+    z-index: 2;
+    color: var(--text);
+    letter-spacing: 1px;
+  }
+  
+  /* radar sweep */
+  .radar {
+    position: absolute;
+    inset: 0; /* FULL SIZE */
+  
+    overflow: hidden;
+    border-radius: inherit;
+  
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.04),
+      transparent 70%
+    );
+  }
+
+  .radar-sweep {
+    position: absolute;
+  
+    width: 300%;
+    height: 300%;
+  
+    top: -100%;
+    left: -100%;
+  
+    background: conic-gradient(
+      from 0deg,
+      transparent 0%,
+      rgba(150, 150, 150, 0.25) 8%,
+      transparent 20%
+    );
+  
+    animation: sweep 2.5s linear infinite;
+  
+    transform-origin: center;
+  }
+  .radar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+  
+    background:
+      repeating-radial-gradient(
+        circle,
+        transparent 0px,
+        transparent 10px,
+        rgba(155,155,155,0.15) 11px
+      );
+  
+    pointer-events: none;
+  }
+
+  @keyframes sweep {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes sweep {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .hud-button {
+    margin-top: 10px;
+    width: 100%;
+  
+    padding: 8px;
+    border-radius: 10px;
+  
+    border: 1px solid rgba(255,255,255,0.1);
+    background: var(--card);
+    color: var(--text);
+  
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  
+  .hud-button:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* =========================
+     COCKPIT TRANSITION ANIMATION
+  ========================= */
+  
+  .cockpit-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    pointer-events: none;
+  }
+  
+  /* avion */
+  .plane {
+    position: absolute;
+    top: 0;
+    left: -50vw;
+  
+    width: 60vw;
+    height: 100vh;
+  
+    background-image: url("/plane.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  
+    filter: drop-shadow(0 0 25px var(--accent));
+  
+    animation: flyby 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+  
+  @keyframes flyby {
+    0% {
+      transform: translateX(0) scale(0.9);
+      opacity: 0;
+    }
+  
+    20% {
+      opacity: 1;
+    }
+  
+    100% {
+      transform: translateX(140vw) scale(1.1);
+      opacity: 0;
+    }
+  }
+  
+  /* scanline cockpit */
+  .scanline {
+    position: absolute;
+    inset: 0;
+  
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--accent),
+      transparent
+    );
+  
+    animation: scan 0.6s ease-out;
+  }
+  
+  @keyframes scan {
+    from { opacity: 0; }
+    50% { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  @media (max-width: 768px) {
+    .cockpit-hud {
+      width: 140px;
+      padding: 10px;
+      top: 10px;
+      left: 10px;
+    }
+  
+    .hud-title {
+      font-size: 10px;
+    }
+  
+    .hud-display {
+      height: 50px;
+    }
+  
+    .hud-theme {
+      font-size: 10px;
+    }
+  }
+
+  .pricing-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  
+  @media (max-width: 768px) {
+    .pricing-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .grid-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+  }
+
+  @media (max-width: 1024px) {
+    .grid-5 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .grid-5 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .grid-5 {
+      grid-template-columns: 1fr;
+    }
+  }

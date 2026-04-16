@@ -2,21 +2,39 @@ export default function Process({ data, lang }: any) {
   const text = {
     fr: {
       title: 'Process',
-      order: 'Commande via formulaire',
-      sketch: 'Sketch + retours',
-      final: 'Paiement final',
-      delivery: 'Livraison',
-      formats: 'Formats livrés',
-      commercial: 'Usage commercial',
+      steps: [
+        'Commande via formulaire',
+        'Paiement 50% (Paypal)',
+        'Sketch + retours (2 révisions incluses)',
+        'Paiement final',
+        'Rendu final + livraison',
+      ],
+      rulesTitle: 'Informations importantes',
+      rules: [
+        'Paiement non remboursable (sauf annulation de ma part)',
+        'Usage personnel uniquement (x2 pour usage commercial)',
+        'Délais : 2 semaines → 2 mois selon complexité',
+        'Les prix sont en dollars ($)',
+      ],
+      output: 'Livraison',
     },
     en: {
       title: 'Process',
-      order: 'Order via form',
-      sketch: 'Sketch + feedback',
-      final: 'Final payment',
-      delivery: 'Delivery',
-      formats: 'Delivered formats',
-      commercial: 'Commercial use',
+      steps: [
+        'Order via form',
+        '50% upfront payment (Paypal)',
+        'Sketch + feedback (2 revisions included)',
+        'Final payment',
+        'Final render + delivery',
+      ],
+      rulesTitle: 'Important info',
+      rules: [
+        'Payment is non-refundable (unless I cancel)',
+        'Personal use only (x2 for commercial use)',
+        'Delivery time: 2 weeks → 2 months depending on complexity',
+        'Prices are in USD ($)',
+      ],
+      output: 'Delivery',
     },
   };
 
@@ -24,23 +42,31 @@ export default function Process({ data, lang }: any) {
     <section>
       <h2>{text[lang].title}</h2>
 
-      <ol>
-        <li>{text[lang].order}</li>
-        <li>{data.rules.payment.join(' / ')}</li>
-        <li>{text[lang].sketch}</li>
-        <li>{text[lang].final}</li>
-        <li>
-          {text[lang].delivery} ({data.rules.delivery.min} →{' '}
-          {data.rules.delivery.max})
-        </li>
-      </ol>
+      {/* ===== STEPS ===== */}
+      <div className="grid grid-5 process-steps">
+        {text[lang].steps.map((step: string, i: number) => (
+          <div key={i} className="card process-card">
+            <span className="step-number">{i + 1}</span>
+            <p>{step}</p>
+          </div>
+        ))}
+      </div>
 
-      <p>
-        {text[lang].formats} : {data.rules.output.join(', ')}
-      </p>
-      <p>
-        {text[lang].commercial} : {data.rules.commercial_use}
-      </p>
+      {/* ===== RULES ===== */}
+      <div className="card" style={{ marginTop: 30 }}>
+        <h3>{text[lang].rulesTitle}</h3>
+        <ul>
+          {text[lang].rules.map((rule: string) => (
+            <li key={rule}>{rule}</li>
+          ))}
+        </ul>
+      </div>
+
+      {/* ===== OUTPUT ===== */}
+      <div className="card" style={{ marginTop: 20 }}>
+        <h3>{text[lang].output}</h3>
+        <p>{data.rules.output.join(', ')}</p>
+      </div>
     </section>
   );
 }

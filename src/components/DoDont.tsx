@@ -11,35 +11,54 @@ export default function DoDont({ data, lang }: any) {
       maybe: 'Maybe',
     },
   };
+
   const t = text[lang as keyof typeof text];
 
+  const blocks = [
+    {
+      title: t.do,
+      icon: '✅',
+      items: data.content_policy.allowed,
+      type: 'good',
+    },
+    {
+      title: t.dont,
+      icon: '❌',
+      items: data.content_policy.forbidden,
+      type: 'bad',
+    },
+    {
+      title: t.maybe,
+      icon: '❓',
+      items: data.content_policy.unsure,
+      type: 'neutral',
+    },
+  ];
+
   return (
-    <section className="grid grid-3">
-      <div className="policy-box">
-        <h3 className="policy-yes">✅ {t.do}</h3>
-        <ul>
-          {data.content_policy.allowed.map((item: string) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </div>
+    <section>
+      <h2 style={{ textAlign: 'center', marginBottom: 30 }}>
+        {lang === 'fr' ? 'Conditions' : 'Rules'}
+      </h2>
 
-      <div className="policy-box">
-        <h3 className="policy-no">❌ {t.dont}</h3>
-        <ul>
-          {data.content_policy.forbidden.map((item: string) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </div>
+      <div className="grid grid-3 dodont-grid">
+        {blocks.map((block) => (
+          <div key={block.title} className={`card dodont-card ${block.type}`}>
+            
+            <h3 className="dodont-title">
+              {block.icon} {block.title}
+            </h3>
 
-      <div className="policy-box">
-        <h3 className="policy-maybe">❓ {t.maybe}</h3>
-        <ul>
-          {data.content_policy.unsure.map((item: string) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
+            <ul className="dodont-list">
+              {block.items.map((item: string) => (
+                <li key={item} className="dodont-item">
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -186,7 +186,7 @@ export default function Pricing({ data, lang }: any) {
     <section>
       <h2>{text[lang].title}</h2>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 20 }}>
+      <div className="pricing-layout">
         {/* LEFT */}
         <div>
           {/* ================= STEP 0 PACKS ================= */}
@@ -202,6 +202,7 @@ export default function Pricing({ data, lang }: any) {
                       selected.pack?.id === pack.id ? 'selected' : ''
                     }`}
                     onClick={() => selectPack(pack)}
+                    style={{ cursor: 'pointer' }}
                   >
                     <h3>⭐ {pack.name}</h3>
                     <p>
@@ -216,8 +217,9 @@ export default function Pricing({ data, lang }: any) {
 
               <div style={{ marginTop: 20, display: 'flex', gap: 12 }}>
                 <button
-                  className="button button-secondary a-la-carte-btn"
+                  className="button button-secondary"
                   onClick={startCustom}
+                  style={{margin: 'auto'}}
                 >
                   {text[lang].aLaCarte}
                 </button>

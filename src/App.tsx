@@ -7,12 +7,14 @@ import DoDont from './components/DoDont';
 import Process from './components/Process';
 import Contact from './components/Contact';
 import LanguageSwitch from './components/LanguageSwitch';
+import CockpitThemeHUD from './components/CockpitThemeHUD';
 
 import { load } from 'js-yaml';
 import frRaw from './data/prices-fr.yaml?raw';
 import enRaw from './data/prices-en.yaml?raw';
 
-import './styles/global.css';
+import './styles/themes.css';
+import './styles/cleaned.css';
 
 export default function App() {
   const [lang, setLang] = useState<'fr' | 'en'>('fr');
@@ -40,6 +42,9 @@ export default function App() {
   return (
     <div className="app-wrapper">
       <LanguageSwitch lang={lang} setLang={setLang} />
+      
+      <CockpitThemeHUD />
+      
       <div className="app-surface">
         <Header lang={lang} />
         <Gallery lang={lang} />
